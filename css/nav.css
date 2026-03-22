@@ -1,0 +1,128 @@
+
+
+ul.meniu{
+    display:flex;
+}
+
+ul.meniu ul{
+    display:none;
+    position:absolute;
+    background-color:var(--culoare-meniu);
+    border:1px solid var(--culoare-contur);
+    border-radius:6px;
+    animation:animatie_submeniu 0.3s linear;
+    transform-origin: center top;
+
+    flex-direction:column;
+}
+ul.meniu>li:hover  ul{
+    display:block;
+    z-index:10;
+}
+ul.meniu li{
+    display:inline-block;
+    cursor:pointer;
+    font-weight:bold;
+    width:var(--latime-buton);
+    padding:0 10px;
+    height:var(--inaltime-buton);
+    background-color: var(--culoare-meniu);
+    border:1px solid var(--culoare-contur);
+    color:white;
+    text-align:center;
+    line-height:var(--inaltime-buton);
+    transition:all 0.3s linear;
+
+
+}
+ul.meniu li:hover{
+    background-color: var(--culoare-hover);
+    color:white;
+    
+}
+nav{
+    --latime-buton:180px;
+    --inaltime-buton:40px;
+    background-color:var(--culoare-principala);
+    display:flex;
+    justify-content:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+ul.meniu,ul.meniu ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+
+}
+#hamburger{
+    display:none;
+    font-size:28px;
+    color:white;
+    padding:10px;
+    cursor:pointer;
+}
+#ch-menu{
+    display:none;
+}
+.text-icon, .imag-icon{
+    display:inline-block;
+
+}
+ul.meniu{
+    display:flex;
+    
+}
+ul.meniu a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+}
+ul.meniu i{
+    margin-right:8px;
+}
+ul.meniu ul li{
+    display:block;
+    width:100%;
+}
+
+
+@keyframes animatie_submeniu{
+   
+    0%
+    {
+        opacity:0;
+        transform: scale(0,0);
+    }
+    50%{
+        transform:scale(0.5,1);
+    }
+    100%{
+        opacity:1;
+        transform: scale(1,1);
+    }
+}
+.text-icon, .imag-icon{
+    display:inline-block;
+}
+@media screen and (max-width:700px){
+
+    #hamburger{
+        display:block;
+    }
+
+    ul.meniu{
+        flex-direction:column;
+        display:none;
+        width:100%;
+    }
+
+    ul.meniu li{
+        width:100%;
+    }
+
+    #ch-menu:checked + #hamburger + ul.meniu{
+        display:flex;
+    }
+
+}

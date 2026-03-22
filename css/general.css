@@ -1,0 +1,460 @@
+html {
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+    
+}
+header {
+    background-color: var(--culoare-accent);
+    border-bottom: 3px solid var(--culoare-contur);
+}
+
+body {
+    --culoare-fundal: #f5efe6;
+    --culoare-principala: #5a3e2b;
+    --culoare-meniu: #7b4f2c;
+    --culoare-hover: #a47148;
+    --culoare-accent: #d6b98c;
+    --culoare-text: #2b2b2b;
+    --culoare-contur: #8b6b4a;
+    --culoare-card:#ffffff;
+    --margine-pagina: 150px;
+    --padding-zona: 20px;
+
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-text);
+    font-family: 'Arial', Helvetica, sans-serif;
+    line-height: 1.6;
+}
+header .header-container {
+    display: flex;
+    flex-direction: column; /* imagine + titlu unul sub altul */
+    align-items: center; /* totul centrat pe orizontală */
+    text-align: center;
+    gap: 10px; /* distanță între imagine și titlu */
+}
+
+header img {
+    width: 100%; /* nu depășește lățimea ecranului */
+    height: 350px;
+    object-fit:cover;
+    display:block;
+    border-radius: 0; 
+}
+
+.intro {
+    border: 1px solid var(--culoare-contur);
+}
+
+main {
+    margin-left: var(--margine-pagina);
+    margin-right: var(--margine-pagina);
+    max-width: none;
+
+}
+
+#grid-pagina {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    
+        "z1 z1 z1 z1"
+        "z2 z2 z8 z8"
+        "z5 z6 z8 z8"
+        "z5 z6 z8 z8"
+        "z4 z3 z7 z7";
+
+}
+
+#grid-pagina>* {
+    border: 1px solid var(--culoare-contur);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: var(--padding-zona);
+    border-radius: 10px;
+    background: var(--culoare-fundal);
+    background-color:var(--culoare-card);
+}
+
+#welcome {
+    grid-area: z1;
+}
+#anunturi {
+    grid-area: z4;
+}
+#useri-online{
+    grid-area: z5;
+}
+#statistici{
+    grid-area: z6;
+}
+#date-server{
+    grid-area: z7;
+}
+#diverse{
+    grid-area: z8;
+}
+
+
+#livrare {
+    grid-area:z2;
+}
+#calendar{
+    grid-area:z3;
+}
+.placeholder-box {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.02);
+}
+#dv-prezentare {
+    text-align: center;
+}
+
+
+figure {
+    margin: 0;
+}
+
+figure.fg-img>img {
+    width: 100%;
+    height: auto;
+}
+
+figure img {
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+    height:auto;
+    object-fit:cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+figure.fg-img {
+    text-align: center;
+}
+
+figure img:hover {
+    transform: scale(1.05);
+}
+
+#titlu {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#titlu h1 {
+    font-family: "Meie Script", cursive;
+    font-size: 3.5rem;
+    color: var(--culoare-principala);
+    text-align: center;
+}
+
+#titlu span {
+    color: var(--culoare-hover);
+}
+#poza-treia {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.meie-script-regular {
+    font-family: "Meie Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    border-bottom: 2px solid var(--culoare-accent);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.container-iframe {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Le aliniază la marginea de sus */
+    justify-content: center;
+    margin: 50px auto;
+}
+
+/* Iframe-ul / Video-ul */
+.container-iframe iframe {
+    width: 100%;
+    max-width: 600px;
+    min-width: 250px;
+    order: 1;
+    border: 6px solid var(--culoare-contur); /* Rama exterioară */
+    z-index: 2;
+    background-color: white;
+}
+
+/* Coloana cu tab-uri */
+.taburi-iframe {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    margin-left: -6px; /* Se suprapune fix peste bordura iframe-ului */
+    z-index: 1;
+    /* Am eliminat gap-ul pentru a fi lipite */
+}
+
+/* Stilul pentru fiecare Tab (Buton) */
+.taburi-iframe a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 60px; /* Înălțime fixă pentru a se îmbina perfect */
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    
+    /* CULORI */
+    background-color: var(--culoare-accent);
+    color: var(--culoare-principala);
+    
+    /* EFECTUL DE RAMĂ DUBLĂ (2 LINII) */
+    border: 2px solid var(--culoare-contur); /* Linia 1 (exterioară) */
+    outline: 1px solid var(--culoare-contur); /* Linia 2 (interioară) */
+    outline-offset: -5px; /* Împinge a doua linie spre interior */
+
+    /* FORMĂ */
+    border-left: none; /* Să pară că ies din video */
+    border-radius: 0 15px 15px 0; /* Rotunjite doar la exterior */
+    
+    margin-bottom: -2px; /* Elimină spațiul dintre bordurile tab-urilor vecine */
+    transition: all 0.3s ease;
+}
+
+/* Efectul de Hover */
+.taburi-iframe a:hover {
+    background-color: var(--culoare-hover);
+    color: white;
+    padding-left: 25px; /* Se mișcă ușor textul spre dreapta */
+    transform: scaleX(1.05); /* Se lungește puțin */
+    z-index: 3; /* Tab-ul activ trece deasupra celorlalte */
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px solid var(--culoare-contur);
+    background-color: var(--culoare-meniu);
+    color: white;
+}
+#tab-anunturi{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: inset 6px var(--culoare-contur);
+    width:100%;
+    min-width: 600px;
+}
+
+#tab-anunturi caption{
+    caption-side: bottom;
+    padding:10px;
+    font-weight:bold;
+}
+#tab-anunturi thead tr {
+    border-bottom: 3px solid var(--culoare-contur);
+}
+
+#tab-anunturi tbody tr:nth-child(even) {
+    border-bottom: 3px solid var(--culoare-accent); /* c1 */
+}
+
+#tab-anunturi tbody tr:nth-child(odd) {
+    border-bottom: 3px solid var(--culoare-hover); /* c2 */
+}
+#tab-anunturi th,
+#tab-anunturi td {
+    border: 1px solid var(--culoare-contur);
+    padding:8px;
+}
+#tab-anunturi tbody tr {
+    position: relative;
+}
+#tab-anunturi tbody td {
+    position: relative; /* necesar pentru outline */
+    transition: outline 0.5s ease; /* tranziția de 0.5s */
+}
+
+#tab-anunturi tbody tr:hover td {
+    outline: 5px solid rgba(139, 107, 74, 0.7); /* outline de 5px semi-transparent */
+}
+
+
+
+#tab-anunturi tbody tr:hover::after {
+    outline: 5px solid rgba(139, 107, 74, 0.7);
+}
+.table-container {
+    overflow-x: auto;
+}
+
+
+
+
+@media screen and (max-width:1000px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        
+        --margine-pagina: 40px;
+        --padding-zona: 15px;
+    }
+
+    #grid-pagina {
+        gap:15px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "z1 z1"
+            "z2 z2"
+            "z3 z4"
+            "z5 z4"
+            "z6 z7"
+            "z8 z8";
+    }
+    * {
+        animation: none !important;
+    }
+
+    #tab-anunturi{
+        min-width:600px;
+    }
+
+}
+
+
+@media screen and (max-width:700px) {
+    html{
+    font-size:10px;
+}
+    body {
+        --margine-pagina: 10px;
+    }
+    
+
+    #grid-pagina {
+        gap:8px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "z1"
+            "z2"
+            "z3"
+            "z4"
+            "z5"
+            "z6"
+            "z7"
+            "z8";
+            
+    }
+    * {
+        animation: none !important;
+    }
+    .container-iframe {
+        flex-direction: column;
+        align-items: center;
+    }
+    .taburi-iframe {
+        margin-left: 0;
+        margin-top: 10px;
+        flex-direction: row;
+    }
+    .taburi-iframe a {
+        border-left: 2px solid var(--culoare-contur);
+        border-radius: 10px 10px 0 0;
+        margin-right: -2px;
+    }
+
+    
+    #link-top {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #tab-anunturi{
+    min-width:600px;
+}
+
+}
+
+#link-top {
+    /* Poziționare fixă */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    
+    /* Dimensiuni și formă */
+    display: block; /* Cerința: link-ul e de tip block */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Bordură rotunjită */
+    
+    /* Culori și aspect */
+    background-color: var(--culoare-accent);
+    border: 3px solid var(--culoare-contur);
+    text-decoration: none;
+    
+    /* Centrare triunghi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Transparență și Umbră inițială */
+    opacity: 0.6; /* Semi-transparent conform cerinței */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Umbră externă discretă */
+    
+    /* Tranziție (între 300-700ms) */
+    transition: background-color 0.5s, opacity 0.5s, box-shadow 0.5s;
+    
+    z-index: 1000;
+}
+
+/* Triunghiulețul gol din interior */
+#link-top .triunghi {
+    color: var(--culoare-principala);
+    font-size: 30px;
+    line-height: 0;
+    margin-bottom: 4px; /* Ajustare vizuală pentru centrare */
+}
+
+/* --- STAREA HOVER --- */
+#link-top:hover {
+    opacity: 1; /* Devine opac */
+    background-color: var(--culoare-hover); /* Se închide la culoare */
+    
+    /* Umbră intensă în jurul butonului (fără să sară din ecran) */
+    box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.5); 
+}
+
+/* Tooltip-ul (text explicativ) */
+#link-top .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+}
+
+#link-top:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
