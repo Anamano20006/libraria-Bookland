@@ -1,0 +1,18 @@
+
+nav .meniu > li > div.text-icon {
+    font-size: 0;   
+    padding: 10px;  
+}
+
+
+nav .meniu > li > div.text-icon i {
+    font-size: 1.5rem;
+}
+nav .meniu > li > a {
+    font-size: 0;   
+    padding: 10px;
+}
+
+nav .meniu > li > a i {
+    font-size: 1.5rem; 
+}

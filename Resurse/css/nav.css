@@ -1,0 +1,265 @@
+@charset "UTF-8";
+nav .meniu > li > div.text-icon, nav .meniu > li > a {
+  display: block;
+  padding: 15px 20px;
+  color: var(--culoare-card);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+nav .meniu > li > div.text-icon::after, nav .meniu > li > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent 0%, transparent 40%, white 50%, white 100%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  transition: background-position 0.5s ease;
+}
+nav .meniu > li > div.text-icon:hover, nav .meniu > li > a:hover {
+  background-color: var(--culoare-hover);
+  color: white;
+}
+nav .meniu > li > div.text-icon:hover::after, nav .meniu > li > a:hover::after {
+  background-position: right bottom;
+}
+nav .meniu > li > div.text-icon i, nav .meniu > li > a i {
+  margin-right: 5px;
+}
+
+nav .meniu > li > ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: var(--culoare-meniu);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  transform: scaleY(0);
+  transform-origin: center top;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+nav {
+  background-color: var(--culoare-meniu);
+  position: relative;
+  z-index: 1000;
+}
+nav #ch-menu {
+  display: none;
+}
+nav #hamburger {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  font-size: 1.5rem;
+}
+nav .meniu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+nav .meniu > li {
+  position: relative;
+}
+nav .meniu > li > ul li {
+  border-bottom: 1px solid var(--culoare-contur);
+}
+nav .meniu > li > ul li:last-child {
+  border-bottom: none;
+}
+nav .meniu > li > ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--culoare-card);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+nav .meniu > li > ul li a:hover {
+  background-color: white !important;
+  color: var(--culoare-principala) !important;
+  padding-left: 25px;
+}
+nav .meniu > li:hover > ul {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+nav .meniu > li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+nav .meniu > li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+nav .meniu > li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+nav .meniu > li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+nav .meniu > li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+nav .meniu > li > ul > li:nth-child(1) > a {
+  background-color: rgba(123, 79, 44, 0.95);
+}
+
+nav .meniu > li > ul > li:nth-child(2) > a {
+  background-color: rgba(123, 79, 44, 0.9);
+}
+
+nav .meniu > li > ul > li:nth-child(3) > a {
+  background-color: rgba(123, 79, 44, 0.85);
+}
+
+nav .meniu > li > ul > li:nth-child(4) > a {
+  background-color: rgba(123, 79, 44, 0.8);
+}
+
+nav .meniu > li > ul > li:nth-child(5) > a {
+  background-color: rgba(123, 79, 44, 0.75);
+}
+
+nav .meniu > li > ul > li:nth-child(6) > a {
+  background-color: rgba(123, 79, 44, 0.7);
+}
+
+nav .meniu > li > ul > li:nth-child(7) > a {
+  background-color: rgba(123, 79, 44, 0.65);
+}
+
+nav .meniu > li > ul > li:nth-child(8) > a {
+  background-color: rgba(123, 79, 44, 0.6);
+}
+
+.meniu {
+  background-color: var(--culoare-meniu);
+}
+
+@media screen and (max-width: 700px) {
+  nav #hamburger {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--culoare-meniu);
+    text-align: left;
+    padding: 10px 15px;
+  }
+  nav .meniu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--culoare-meniu);
+    /* Animația cu balama în stânga-sus (rotație 2D) */
+    transform-origin: top left;
+    transform: rotate(-90deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+  }
+  nav .meniu > li {
+    width: 100%;
+  }
+  nav .meniu > li > div.text-icon, nav .meniu > li > a {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem !important;
+    color: white !important;
+    padding: 15px;
+    /* Ascundem bara glisantă */
+  }
+  nav .meniu > li > div.text-icon::after, nav .meniu > li > a::after {
+    display: none !important;
+  }
+  nav .meniu > li > div.text-icon, nav .meniu > li > a {
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+    /* AICI AM MODIFICAT: Interschimbarea culorilor la hover pe opțiunile principale */
+  }
+  nav .meniu > li > div.text-icon:hover, nav .meniu > li > a:hover {
+    background-color: white !important;
+    color: var(--culoare-principala) !important;
+  }
+  nav .meniu > li > div.text-icon, nav .meniu > li > a {
+    /* ASCUNDEM ICONIȚELE PENTRU OPȚIUNILE 2, 3, 4, 5 */
+  }
+  nav .meniu > li > div.text-icon i, nav .meniu > li > a i {
+    display: none !important;
+  }
+  nav .meniu > li {
+    /* MODIFICĂM DOAR PRIMA OPȚIUNE (ACASĂ) */
+  }
+  nav .meniu > li:first-child > div.text-icon {
+    font-size: 0 !important;
+  }
+  nav .meniu > li:first-child > div.text-icon i {
+    display: inline-block !important;
+    font-size: 1.5rem !important;
+    margin: 0;
+  }
+  nav .meniu > li {
+    /* Submeniul */
+  }
+  nav .meniu > li > ul {
+    position: relative;
+    width: 100%;
+    transform-origin: top center;
+    transform: rotateX(90deg);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease, max-height 0.4s ease !important;
+  }
+  nav .meniu > li > ul li a {
+    display: block;
+    text-align: center;
+    font-size: 1rem !important;
+    color: white !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+    /* Hover-ul de la submeniu (același comportament de culori acum) */
+  }
+  nav .meniu > li > ul li a:hover {
+    padding-left: 15px !important;
+    background-color: white !important;
+    color: var(--culoare-principala) !important;
+  }
+  nav .meniu > li {
+    /* Afișarea submeniului */
+  }
+  nav .meniu > li:hover > ul {
+    transform: rotateX(0deg);
+    opacity: 1;
+    max-height: 600px;
+  }
+  nav {
+    /* Declanșarea meniului la apăsarea pe hamburger */
+  }
+  nav #ch-menu:checked ~ .meniu {
+    transform: rotate(0deg);
+    opacity: 1;
+    visibility: visible;
+  }
+}/*# sourceMappingURL=nav.css.map */
