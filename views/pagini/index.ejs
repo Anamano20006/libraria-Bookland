@@ -395,7 +395,30 @@
 
 
     </main>
+    <section id="video-vtt">
+    <h2>📚 Video despre cărți</h2>
 
+    <video controls preload="metadata"
+           poster="/Resurse/video/poster.jpg"
+           style="width:80%; min-width:300px; max-width:900px; display:block; margin:auto;">
+
+        <source src="/Resurse/video/carti.mp4" type="video/mp4">
+        <source src="/Resurse/video/carti1.ogv" type="video/ogg">
+
+        <track src="/Resurse/video/tracks/captions-ro.vtt"
+               kind="captions"
+               srclang="ro"
+               label="Română"
+               default>
+
+        <track src="/Resurse/video/tracks/captions-en.vtt"
+               kind="captions"
+               srclang="en"
+               label="English">
+
+        Browserul tău nu suportă video.
+    </video>
+</section>
     <%- include ('../fragmente/footer.ejs') %>
     
 </body>
