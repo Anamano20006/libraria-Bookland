@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title> Librăria BookLand - despre</title>
+    <meta name="description" content="Prezentarea Librăriei BookLand">
+    <meta name="keywords"
+        content="librărie, BookLand, cărți, carte, preferințe, fictiune, fantasy, lectura, magazin online">
+    <%- include ('../fragmente/head.ejs') %>
+</head>
+
+<body id="top">
+    <%- include ('../fragmente/header.ejs') %>
+
+    <main>
+        <section>
+            <h2>Despre Librăria BookLand</h2>
+
+            <p>
+                Librăria BookLand este un magazin online dedicat tuturor pasionaților de lectură.
+            </p>
+
+            <p>IP: <%- locals.ip %></p>
+
+            <figure>
+                <img src="/Resurse/images/librarie2.jpg" alt="Librarie" width="400">
+            </figure>
+        </section>
+    </main>
+
+    <%- include ('../fragmente/footer.ejs') %>
+</body>
+</html>

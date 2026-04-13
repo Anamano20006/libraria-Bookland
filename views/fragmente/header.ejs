@@ -1,0 +1,55 @@
+<header>
+    <div class="header-container">
+        <img src="/Resurse/images/principala.jfif" alt="Poza principala" />
+        <h1 id="titlu" class="meie-script-regular">Libraria <span>BookLand</span> <i
+                class="fa-solid fa-book fa-bounce"></i>
+        </h1>
+        <div class="ip-user">
+            IP: <%- locals.ip %>
+        </div>
+    </div>
+    <nav>
+        <input type="checkbox" id="ch-menu">
+        <label for="ch-menu" id="hamburger"><i class="fa-solid fa-bars"></i></label>
+
+        <ul class="meniu">
+            <li>
+                <div class="text-icon"><i class="fa-solid fa-house fa-fade"></i> Acasa</div>
+                <ul>
+                    <li><a href="#welcome">Welcome</a></li>
+                    <li><a href="#promotii">Promotii</a></li>
+                    <li><a href="#anunturi">Anunturi</a></li>
+                    <li><a href="#recomandari">Recomandari</a></li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a href="/despre" class="text-icon"><i class="fa-solid fa-book-open fa-fade"></i> Despre</a>
+                <ul>
+                    <li><a href="/#welcome">Prezentare</a></li>
+                    <li><a href="/#galerie-statica">Galerie</a></li>
+                    <li><a href="/#video-cartile">Video carti</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <div class="text-icon"><i class="fa-solid fa-wand-sparkles fa-fade"></i> Produse</div>
+                <ul>
+                    <li><a href="#produse">Toate</a></li>
+                    <li><a href="#produse">Fantasy</a></li>
+                    <li><a href="#produse">Fictiune</a></li>
+                    <li><a href="#produse">Dezvoltare personala</a></li>
+                    <li><a href="#produse">Carti pentru copii</a></li>
+                </ul>
+            </li>
+            <li><a href="#livrare"><i class="fa-solid fa-truck fa-fade"></i> Livrare</a></li>
+            <li>
+                <a href="#intrebari">
+                    <i class="fa-solid fa-circle-question fa-fade"></i> Intrebari frecvente
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

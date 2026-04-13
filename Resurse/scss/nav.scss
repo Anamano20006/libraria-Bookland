@@ -1,0 +1,260 @@
+$latime-submeniu: 220px;
+$padding-element: 15px 20px;
+$timp-animatie: 0.3s;
+
+%stil-element-principal {
+    display: block;
+    padding: $padding-element;
+    color: var(--culoare-card);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;
+    transition: all $timp-animatie ease;
+    white-space: nowrap;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, transparent 0%, transparent 40%, white 50%, white 100%);
+        background-size: 200% 100%; 
+        background-position: left bottom; 
+        transition: background-position 0.5s ease; 
+    }
+
+    &:hover {
+        background-color: var(--culoare-hover);
+        color: white;
+        
+        &::after {
+            background-position: right bottom;
+        }
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+%stil-bloc-submeniu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: $latime-submeniu;
+    background-color: var(--culoare-meniu);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    transform: scaleY(0);
+    transform-origin: center top;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+nav {
+    background-color: var(--culoare-meniu);
+    position: relative;
+    z-index: 1000;
+
+    #ch-menu {
+        display: none;
+    }
+
+    #hamburger {
+        display: none; 
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .meniu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+
+        > li {
+            position: relative;
+
+            > div.text-icon, > a {
+                @extend %stil-element-principal;
+            }
+
+            > ul {
+                @extend %stil-bloc-submeniu;
+
+                li {
+                    border-bottom: 1px solid var(--culoare-contur);
+                    
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 10px 15px;
+                        color: var(--culoare-card);
+                        text-decoration: none;
+                        transition: all $timp-animatie ease;
+
+                        &:hover {
+                            background-color: white !important;
+                            color: var(--culoare-principala) !important;
+                            padding-left: 25px; 
+                        }
+                    }
+                }
+            }
+
+            &:hover > ul {
+                transform: scaleY(1);
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+}
+
+$total-elemente: 5;
+@for $i from 1 through $total-elemente {
+    nav .meniu > li:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s; 
+    }
+}
+
+$j: 1;
+@while $j <= 8 {
+    nav .meniu > li > ul > li:nth-child(#{$j}) > a {
+        background-color: rgba(123, 79, 44, 1 - ($j * 0.05)); 
+    }
+    $j: $j + 1;
+}
+
+$culoare-accent-sass: var(--culoare-accent);
+
+.meniu {
+   background-color: var(--culoare-meniu);
+}
+
+
+@media screen and (max-width: 700px) {
+    nav {
+        #hamburger {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--culoare-meniu);
+            text-align: left;
+            padding: 10px 15px;
+        }
+
+        .meniu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--culoare-meniu);
+            
+            /* Animația cu balama în stânga-sus (rotație 2D) */
+            transform-origin: top left; 
+            transform: rotate(-90deg); 
+            opacity: 0;
+            visibility: hidden; 
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+
+            > li {
+                width: 100%;
+
+                > div.text-icon, > a {
+                    display: block;
+                    text-align: center;
+                    font-size: 1.2rem !important; 
+                    color: white !important; 
+                    padding: 15px;
+                    
+                    /* Ascundem bara glisantă */
+                    &::after {
+                        display: none !important;
+                    }
+                    
+                    transition: background-color $timp-animatie ease, color $timp-animatie ease !important;
+                    
+                    /* AICI AM MODIFICAT: Interschimbarea culorilor la hover pe opțiunile principale */
+                    &:hover {
+                        background-color: white !important;
+                        color: var(--culoare-principala) !important;
+                    }
+
+                    /* ASCUNDEM ICONIȚELE PENTRU OPȚIUNILE 2, 3, 4, 5 */
+                    i {
+                        display: none !important;
+                    }
+                }
+
+                /* MODIFICĂM DOAR PRIMA OPȚIUNE (ACASĂ) */
+                &:first-child > div.text-icon {
+                    font-size: 0 !important; 
+                    
+                    i {
+                        display: inline-block !important; 
+                        font-size: 1.5rem !important; 
+                        margin: 0;
+                    }
+                }
+
+                /* Submeniul */
+                > ul {
+                    position: relative;
+                    width: 100%;
+                    transform-origin: top center;
+                    transform: rotateX(90deg);
+                    opacity: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: transform 0.4s ease, opacity 0.4s ease, max-height 0.4s ease !important;
+
+                    li a {
+                        display: block;
+                        text-align: center;
+                        font-size: 1rem !important;
+                        color: white !important;
+                        transition: background-color $timp-animatie ease, color $timp-animatie ease !important;
+                        
+                        /* Hover-ul de la submeniu (același comportament de culori acum) */
+                        &:hover {
+                            padding-left: 15px !important; 
+                            background-color: white !important;
+                            color: var(--culoare-principala) !important;
+                        }
+                    }
+                }
+
+                /* Afișarea submeniului */
+                &:hover > ul {
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                    max-height: 600px;
+                }
+            }
+        }
+
+        /* Declanșarea meniului la apăsarea pe hamburger */
+        #ch-menu:checked ~ .meniu {
+            transform: rotate(0deg); 
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
