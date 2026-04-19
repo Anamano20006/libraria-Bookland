@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title> Librăria BookLand</title>
+    <meta name="description"
+        content="Librăria BookLand:cărți de toate genurile pentru toate vârstele, oferte speciale si recomandări pentru iubitorii de lectură.">
+    <meta name="keywords"
+        content="librărie, BookLand, cărți, carte,preferințe, semn de carte, pachet, lectura, fictiune, fantasy, bestseller, recomandari, reduceri, magazin online">
+    <%- include ('../fragmente/head.ejs') %>
+
+</head>
+
+<body id="top">
+    <%- include ('../fragmente/header.ejs') %>
+    <main> <!--  comentariu -->
+        <div id="grid-pagina">
+
+            <section id="welcome">
+                <hgroup>
+                    <h2>Bine ati venit la Libraria BookLand!</h2>
+                    <p class="subtitlu">Universul tău de lectură începe aici</p>
+                </hgroup>
+                <blockquote>
+                    "If a book is well written, I always find it too short"-Jane Austen
+                </blockquote>
+                <figure id="fig1" class="fg-img">
+                    <img src="/Resurse/images/quote.jpg" alt="quote" title="quote">
+                    <figcaption>Quote</figcaption>
+                </figure>
+
+                <p class="intro">Librăria BookLand este un magazin online dedicat iubitorilor de lectură.
+                    Oferim o gamă variată de cărți pentru toate vârstele și toate gusturile,
+                    de la ficțiune si fantasy până la dezvoltare personală.</p>
+                <p> Ip: <%- locals.ip %></p>
+
+
+                <p class="anunt intro"></p>
+                <p>Librăria <strong>Bookland</strong> este pentru toți cei care vor să <strong>evadeze</strong> din
+                    realitate și să călătorească în timp si spațiu prin intermediul cărților.
+                    Este destinată celor care vor să își descopere preferințele de lectură sau chiar pe sine.
+                    Pentru cei care se simt <strong> neînțeleși</strong> și pentru cei cărora nu le ajunge o singură
+                    viață
+                    ca să experimenteze totul.
+                    Prin lectură, poți fi <strong> orice ce îți dorești</strong>.
+                </p>
+
+                <div id="dv-prezentare-1">
+                    <div id="dv-prezentare">
+                        <picture>
+                            <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                            <source srcset="/Resurse/images/librarie1.jpg" media="(max-width:700px)" />
+                            <source srcset="/Resurse/images/poza.jpg" media="(max-width:1200px)" />
+                            <img id="poza-treia" src="/Resurse/images/librarie2.jpg" alt="text" />
+                        </picture>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section id="livrare">
+                <h2>Modalitati de livrare</h2>
+                <div class="table-container">
+                    <table id="tab-anunturi">
+                        <caption>Modalitati de livrare pentru comenzile BookLand</caption>
+                        <thead>
+
+                            <tr>
+                                <th>Metoda</th>
+                                <th>Durata</th>
+                                <th>Cost</th>
+                                <th>Disponibilitate</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Curier rapid</td>
+                                <td>1-2 zile lucratoare</td>
+                                <td>20 de lei</td>
+                                <td>Toata tara</td>
+                            </tr>
+                            <tr>
+                                <td>2 zile</td>
+                                <td>18 lei</td>
+                                <td>Toata tara</td>
+                            </tr>
+
+                            <tr>
+                                <td>Easybox</td>
+                                <td>2 zile</td>
+                                <td>15 lei</td>
+                                <td>Orase mari</td>
+                            </tr>
+                            <tr>
+                                <td>Ridicare din sediu</td>
+                                <td>In aceeasi zi</td>
+                                <td>Gratuit</td>
+                                <td>Bucuresti</td>
+
+                            </tr>
+                            <tr>
+                                <td>Posta Romana</td>
+                                <td>3-4 zile</td>
+                                <td>12 lei</td>
+                                <td>Toata tara</td>
+
+                            </tr>
+                            <tr>
+                                <td>Livrare Premium</td>
+                                <td>24h</td>
+                                <td>35 lei</td>
+                                <td>Orase mari</td>
+
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Transport gratuit pentru comenzile de peste 150 de lei.</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+
+            <section id="calendar" class="placeholder-box">
+                <h3>Calendar Evenimente</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </section>
+
+
+            <section id="anunturi">
+                <h2 class="fg-img">Anunturi</h2>
+                <ul>
+                    <li>
+                        <time datetime="2026-03-01">1 martie ora 18:00</time><b>Lansare colectie Fantasy</b>-prezentam
+                        noile
+                        titluri fantasy disponibile
+                    </li>
+                    <li>
+                        <time datetime="2026-03-20">20 martie ora 12:00</time>,
+                        <b>Ziua cititorului</b>- fiecare client primeste un semn de carte gratuit la cumpararea unei
+                        carti.
+
+                    </li>
+                    <li>
+                        <time datetime="2026-04-05">5 aprilie ora 17:00</time>,<b>Club de lectura BookLand</b>- discutii
+                        despre cele mai importante bestseller-uri.
+
+                    </li>
+                </ul>
+            </section>
+
+
+
+            <section id="useri-online" class="placeholder-box">
+                <h3>🟢 Utilizatori Online</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>
+            </section>
+
+
+
+
+            <section id="statistici" class="placeholder-box">
+                <h3>📊 Statistici Utilizator</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.</p>
+            </section>
+
+
+
+            <section id="date-server" class="placeholder-box">
+                <h3>⚙️ Date Server</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non
+                    proident.</p>
+            </section>
+
+
+
+            <div id="diverse">
+                <section id="promotii">
+                    <h2>Promotii si Oferte</h2>
+                    <article>
+                        <h3>Reducere de weekend</h3>
+                        <p>
+                            <b>Libraria BookLand</b> ofera reduceri de
+                            <s>10%</s> <ins>20%</ins> pentru toate cartile din categoria <b>Fantasy</b>
+
+                        </p>
+                        <p>Oferta este valabila sambata si duminica</p>
+                    </article>
+                    <article>
+                        <h3>Pachet BookLover</h3>
+                        <p>Pachetul include:</p>
+                        <ol>
+                            <li>3 carti la alegere</li>
+                            <li>1 carte gratuita</li>
+                            <li>Semn de carte personalizat</li>
+                            <li>Ambalaj premium cadou</li>
+                        </ol>
+                        <p><strong>Transport gratuit</strong> pentru comenzile de peste 150 de lei</p>
+                    </article>
+                    <article>
+                        <h3>Editii speciale-Sprayed Edges</h3>
+                        <p>Carti cu margini colorate, editii limitate pentru colectionari.
+                            Disponibile in limita stocului.
+                        </p>
+                    </article>
+                </section>
+
+                <section id="produse">
+                    <h2 class="subtitlu">Produsele noastre</h2>
+                    <p>Descopera titluri pentru toate gusturile</p>
+
+                    <section>
+                        <h3>Fantasy</h3>
+                        <p>Romane epice, serii complete, si lumi fantastice.</p>
+                        <dl>
+                            <dt>High Fantasy</dt>
+                            <dd>Romane cu lumi fantastice complexe si eroi legendari</dd>
+                            <dt>Urban Fantasy</dt>
+                            <dd>Actiunea se petrece in orase contemporane, dar cu elemente magice.</dd>
+                            <dt>Dark Fantasy</dt>
+                            <dd>Povesti fantastice cu teme intunecate si personaje complexe. Check TW!!</dd>
+
+                        </dl>
+                    </section>
+                    <section>
+                        <h3>Fictiune</h3>
+                        <ul>
+                            <li>Contemporary Romance</li>
+                            <li>Drama</li>
+                            <li>Thriller</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Dezvoltare personala</h3>
+                        <ul>
+                            <li>Motivatie </li>
+                            <li>Productivitate </li>
+                            <li>Inteligenta Emotionala</li>
+
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Carti pentru copii</h3>
+                        <p>Povesti ilustrate si educative.</p>
+                    </section>
+                    <p>Fiecare carte are un cod unic numit
+                        <abbr title="International Standard Book Number">ISBN</abbr>
+                        care ajuta la identificarea editiei
+                    </p>
+
+
+                </section>
+
+
+
+
+                <section id="recomandari">
+                    <h2>Recomandari</h2>
+                    <article>
+                        <h3>Bestseller</h3>
+                        <p> Cele mai populare titluri ale momentului.</p>
+                    </article>
+                    <article>
+                        <h3>Recomandari sezoniere</h3>
+                        <p> Selectii speciale pentru acest sezon.</p>
+                    </article>
+                    <article>
+                        <h3>Top Fantasy</h3>
+                        <p>Cele mai apreciate carti Fantasy.</p>
+                    </article>
+                    <section>
+                        <h3>Popularitatea genurilor pe carti</h3>
+                        <p>Interes pentru cartile de dezvoltare personala:</p>
+                        <meter value="20" min="0" max="100" low="30" high="80" optimum="90"></meter>
+
+                        <p>Interes pentru cartile fantasy:</p>
+                        <meter value="90" min="0" max="100" low="30" high="80" optimum="90"></meter>
+                    </section>
+                    <p>
+                        <a href="/Resurse/images/coperta.jpg" download="coperta_descarcata.jpg">Descarca imaginea unei
+                            carti
+                            fantasy</a>
+                    </p>
+                </section>
+
+
+                <p>Pentru mai multe recomandari de lectura vizitati
+                    <a href="https://www.goodreads.com" target="_blank">Goodreads
+                    </a>.
+                </p>
+                <p>Puteti citi mai multe despre literatura Fantasy aici.</p>
+                <a
+                    href="https://en.wikipedia.org/wiki/Fantasy_literature#History">https://en.wikipedia.org/wiki/<wbr>Fantasy_literature#History</a>
+
+
+
+
+
+                <figure id="fig4" class="fg-img">
+                    <a href="/Resurse/images/fantasy.jpg">
+                        <img src="/Resurse/images/fantasy.jpg" alt="Carte fantasy"></a>
+                    <figcaption>Fantasy Bestseller</figcaption>
+                </figure>
+                <figure id="fig2" class="fg-img">
+                    <img src="/Resurse/images/colt-lectura.jpg" alt="Colt de lectura">
+                    <figcaption>Colt de lectura</figcaption>
+                </figure>
+                <figure id="fig3" class="fg-img">
+                    <img src="/Resurse/images/sprayed-edges.jpg" alt="Editie speciala">
+                    <figcaption>Editie speciala-Sprayed Edges</figcaption>
+                </figure>
+
+
+                <section id="intrebari">
+                    <h2>Intrebari frecvente</h2>
+
+                    <details>
+                        <summary>Pot returna o carte?</summary>
+                        <p>Da, in termen de 14 zile conform legislatiei in vigoare.</p>
+                    </details>
+
+                    <details>
+                        <summary>Livrati in toata tara?</summary>
+                        <p>Da, livram oriunde in Romania</p>
+                    </details>
+
+                    <details>
+                        <summary>Cartile sunt originale?</summary>
+                        <p>Toate produsele comercializate sunt originale si provin de la distribuitori autorizati</p>
+                    </details>
+                </section>
+            </div>
+        </div>
+
+        <section id="galerie-statica">
+            <h2>Galerie</h2>
+            <div id="grid-galerie">
+                <figure>
+                    <div>
+                        <img src="/Resurse/images/highfantasy.jpg" alt="highfantasy" width="200">
+                    </div>
+
+                    <figcaption>High Fantasy</figcaption>
+                </figure>
+                <figure>
+                    <img src="/Resurse/images/romantasy.jpg" alt="romantasy" width="200">
+                    <figcaption>Romantasy</figcaption>
+                </figure>
+                <figure>
+                    <img src="/Resurse/images/copii.jfif" alt="copii" width="200">
+                    <figcaption>Carti pentru copii</figcaption>
+                </figure>
+                <figure>
+                    <img src="/Resurse/images/fictiune.jpg" alt="fictiune" width="200">
+                    <figcaption>Fictiune</figcaption>
+                </figure>
+                <figure>
+                    <img src="/Resurse/images/dezvoltare.jpg" alt="deszvoltare" width="200">
+                    <figcaption>Carti de dezvoltare personala</figcaption>
+                </figure>
+                <figure>
+                    <img src="/Resurse/images/biblioteca.jpg" alt="biblioteca" width="200">
+                    <figcaption>Biblioteca</figcaption>
+                </figure>
+
+
+            </div>
+        </section>
+
+        <section id="video-cartile">
+            <h2>Recomandari video despre carti</h2>
+            <p>Daca vrei sa descoperi carti noi sau sa vezi recomandari de lectura, urmareste videoclipurile
+                de mai jos cu prezentari de carti si sugestii pentru iubitorii de <b>lectura</b></p>
+            <div class="container-iframe">
+                <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/1kGLwMJKVeM" target="ifr-video">Recomandari carti</a>
+                    <a href="https://www.youtube.com/embed/gdGmegYILGU" target="ifr-video">Top carti fantasy</a>
+                    <a href="https://www.youtube.com/embed/kFSlbAI8qt8" target="ifr-video">Carti populare pe
+                        Booktok</a>
+
+
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1kGLwMJKVeM" name="ifr-video"
+                    title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+
+            </div>
+        </section>
+
+
+    </main>
+    <section id="video-vtt">
+    <h2>📚 Video despre cărți</h2>
+
+    <video controls preload="metadata"
+           poster="/Resurse/video/poster.jpg"
+           style="width:80%; min-width:300px; max-width:900px; display:block; margin:auto;">
+
+        <source src="/Resurse/video/carti.mp4" type="video/mp4">
+        <source src="/Resurse/video/carti1.ogv" type="video/ogg">
+
+        <track src="/Resurse/video/tracks/captions-ro.vtt"
+               kind="captions"
+               srclang="ro"
+               label="Română"
+               default>
+
+        <track src="/Resurse/video/tracks/captions-en.vtt"
+               kind="captions"
+               srclang="en"
+               label="English">
+
+        Browserul tău nu suportă video.
+    </video>
+</section>
+    <%- include ('../fragmente/footer.ejs') %>
+    
+</body>
+
+
+
+</html>
