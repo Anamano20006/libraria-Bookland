@@ -1,0 +1,20 @@
+<section id="galerie-statica">
+    <h2>Galerie BookLand</h2>
+    <div id="grid-galerie">
+        <% for (let imag of locals.imagini) { %>
+            <figure class="galerie-item">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="<%- imag.fisier_mic %>">
+                    <source media="(max-width: 900px)" srcset="<%- imag.fisier_mediu %>">
+                    <img src="<%- imag.fisier_mare %>" alt="<%- imag.alt ? imag.alt : imag.nume %>" title="<%- imag.descriere %>">
+                </picture>
+                <figcaption>
+                    <%- imag.descriere %>
+                    <% if(imag.licenta) { %>
+                        <br><small>Sursa: <a href="<%- imag.link_autor %>" target="_blank"><%- imag.autor %></a> (<%- imag.licenta %>)</small>
+                    <% } %>
+                </figcaption>
+            </figure>
+        <% } %>
+    </div>
+</section>

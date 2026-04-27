@@ -1,8 +1,9 @@
 html {
     font-size: 16px;
     transition: font-size 0.3s ease;
-    
+
 }
+
 header {
     background-color: var(--culoare-accent);
     border-bottom: 3px solid var(--culoare-contur);
@@ -16,7 +17,7 @@ body {
     --culoare-accent: #d6b98c;
     --culoare-text: #2b2b2b;
     --culoare-contur: #8b6b4a;
-    --culoare-card:#ffffff;
+    --culoare-card: #ffffff;
     --culoare-link-vizitat: #6b4c3b;
     --margine-pagina: 150px;
     --padding-zona: 20px;
@@ -26,20 +27,21 @@ body {
     font-family: 'Arial', Helvetica, sans-serif;
     line-height: 1.6;
 }
+
 header .header-container {
     display: flex;
-    flex-direction: column; /* imagine + titlu unul sub altul */
-    align-items: center; /* totul centrat pe orizontală */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 10px; /* distanță între imagine și titlu */
+    gap: 10px;
 }
 
 header img {
-    width: 100%; /* nu depășește lățimea ecranului */
+    width: 100%;
     height: 350px;
-    object-fit:cover;
-    display:block;
-    border-radius: 0; 
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
 }
 
 .intro {
@@ -56,14 +58,13 @@ main {
 #grid-pagina {
     display: grid;
     gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    
-        "z1 z1 z1 z1"
-        "z2 z2 z8 z8"
-        "z5 z6 z8 z8"
-        "z5 z6 z8 z8"
-        "z4 z3 z7 z7";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+
+        "z1 z1 z1 z1 z1"
+        "z2 z2 z2 z8 z8"
+        "z5 z6 z6 z8 z8"
+        "z4 z4 z3 z3 z7";
 
 }
 
@@ -73,40 +74,48 @@ main {
     padding: var(--padding-zona);
     border-radius: 10px;
     background: var(--culoare-fundal);
-    background-color:var(--culoare-card);
+    background-color: var(--culoare-card);
 }
 
 #welcome {
     grid-area: z1;
 }
+
 #anunturi {
     grid-area: z4;
 }
-#useri-online{
+
+#useri-online {
     grid-area: z5;
 }
-#statistici{
+
+#statistici {
     grid-area: z6;
 }
-#date-server{
+
+#date-server {
     grid-area: z7;
 }
-#diverse{
+
+#diverse {
     grid-area: z8;
 }
 
 
 #livrare {
-    grid-area:z2;
+    grid-area: z2;
 }
-#calendar{
-    grid-area:z3;
+
+#calendar {
+    grid-area: z3;
 }
+
 .placeholder-box {
     border: 1px dashed #ccc;
     padding: 10px;
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0, 0, 0, 0.02);
 }
+
 #dv-prezentare {
     text-align: center;
 }
@@ -125,8 +134,8 @@ figure img {
     width: 100%;
     max-width: 500px;
     min-width: 200px;
-    height:auto;
-    object-fit:cover;
+    height: auto;
+    object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s;
 }
@@ -155,6 +164,7 @@ figure img:hover {
 #titlu span {
     color: var(--culoare-hover);
 }
+
 #poza-treia {
     max-width: 300px;
     width: 100%;
@@ -162,6 +172,7 @@ figure img:hover {
     display: block;
     margin: 0 auto;
 }
+
 .meie-script-regular {
     font-family: "Meie Script", cursive;
     font-weight: 400;
@@ -177,18 +188,18 @@ h2 {
 .container-iframe {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; /* Le aliniază la marginea de sus */
+    align-items: flex-start;
     justify-content: center;
     margin: 50px auto;
 }
 
-/* Iframe-ul / Video-ul */
+
 .container-iframe iframe {
     width: 100%;
     max-width: 600px;
     min-width: 250px;
     order: 1;
-    border: 6px solid var(--culoare-contur); /* Rama exterioară */
+    border: 6px solid var(--culoare-contur);
     z-index: 2;
     background-color: white;
 }
@@ -198,49 +209,50 @@ h2 {
     order: 2;
     display: flex;
     flex-direction: column;
-    margin-left: -6px; /* Se suprapune fix peste bordura iframe-ului */
+    margin-left: -6px;
     z-index: 1;
-    /* Am eliminat gap-ul pentru a fi lipite */
+
 }
 
-/* Stilul pentru fiecare Tab (Buton) */
+
 .taburi-iframe a {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
-    height: 60px; /* Înălțime fixă pentru a se îmbina perfect */
+    height: 60px;
     padding: 5px 15px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    
-    /* CULORI */
+
+
     background-color: var(--culoare-accent);
     color: var(--culoare-principala);
-    
-    /* EFECTUL DE RAMĂ DUBLĂ (2 LINII) */
-    border: 2px solid var(--culoare-contur); /* Linia 1 (exterioară) */
-    outline: 1px solid var(--culoare-contur); /* Linia 2 (interioară) */
-    outline-offset: -5px; /* Împinge a doua linie spre interior */
 
-    /* FORMĂ */
-    border-left: none; /* Să pară că ies din video */
-    border-radius: 0 15px 15px 0; /* Rotunjite doar la exterior */
-    
-    margin-bottom: -2px; /* Elimină spațiul dintre bordurile tab-urilor vecine */
+
+    border: 2px solid var(--culoare-contur);
+    outline: 1px solid var(--culoare-contur);
+    outline-offset: -5px;
+
+
+    border-left: none;
+    border-radius: 0 15px 15px 0;
+
+    margin-bottom: -2px;
     transition: all 0.3s ease;
 }
 
-/* Efectul de Hover */
+
 .taburi-iframe a:hover {
     background-color: var(--culoare-hover);
     color: white;
-    padding-left: 25px; /* Se mișcă ușor textul spre dreapta */
-    transform: scaleX(1.05); /* Se lungește puțin */
-    z-index: 3; /* Tab-ul activ trece deasupra celorlalte */
+    padding-left: 25px;
+    transform: scaleX(1.05);
+    z-index: 3;
 }
+
 footer {
     text-align: center;
     margin-top: 40px;
@@ -249,45 +261,54 @@ footer {
     background-color: var(--culoare-meniu);
     color: white;
 }
-#tab-anunturi{
+
+#tab-anunturi {
     border-collapse: collapse;
     border-spacing: 0;
     border: inset 6px var(--culoare-contur);
-    width:100%;
+    width: 100%;
     min-width: 600px;
 }
 
-#tab-anunturi caption{
+#tab-anunturi caption {
     caption-side: bottom;
-    padding:10px;
-    font-weight:bold;
+    padding: 10px;
+    font-weight: bold;
 }
+
 #tab-anunturi thead tr {
     border-bottom: 3px solid var(--culoare-contur);
 }
 
 #tab-anunturi tbody tr:nth-child(even) {
-    border-bottom: 3px solid var(--culoare-accent); /* c1 */
+    border-bottom: 3px solid var(--culoare-accent);
+    /* c1 */
 }
 
 #tab-anunturi tbody tr:nth-child(odd) {
-    border-bottom: 3px solid var(--culoare-hover); /* c2 */
+    border-bottom: 3px solid var(--culoare-hover);
+    /* c2 */
 }
+
 #tab-anunturi th,
 #tab-anunturi td {
     border: 1px solid var(--culoare-contur);
-    padding:8px;
+    padding: 8px;
 }
+
 #tab-anunturi tbody tr {
     position: relative;
 }
+
 #tab-anunturi tbody td {
-    position: relative; /* necesar pentru outline */
-    transition: outline 0.5s ease; /* tranziția de 0.5s */
+    position: relative;
+    transition: outline 0.5s ease;
+    /* tranziția de 0.5s */
 }
 
 #tab-anunturi tbody tr:hover td {
-    outline: 5px solid rgba(139, 107, 74, 0.7); /* outline de 5px semi-transparent */
+    outline: 5px solid rgba(139, 107, 74, 0.7);
+    /* outline de 5px semi-transparent */
 }
 
 
@@ -295,6 +316,7 @@ footer {
 #tab-anunturi tbody tr:hover::after {
     outline: 5px solid rgba(139, 107, 74, 0.7);
 }
+
 .table-container {
     overflow-x: auto;
 }
@@ -308,13 +330,13 @@ footer {
     }
 
     body {
-        
+
         --margine-pagina: 40px;
         --padding-zona: 15px;
     }
 
     #grid-pagina {
-        gap:15px;
+        gap: 15px;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "z1 z1"
@@ -324,28 +346,36 @@ footer {
             "z6 z7"
             "z8 z8";
     }
+
     * {
         animation: none !important;
     }
 
-    #tab-anunturi{
-        min-width:600px;
+    #tab-anunturi {
+        min-width: 600px;
     }
+
+    .text-coloane {
+        column-count: 1;
+        column-rule: none;
+    }
+
 
 }
 
 
 @media screen and (max-width:700px) {
-    html{
-    font-size:10px;
-}
+    html {
+        font-size: 10px;
+    }
+
     body {
         --margine-pagina: 10px;
     }
-    
+
 
     #grid-pagina {
-        gap:8px;
+        gap: 8px;
         grid-template-columns: 1fr;
         grid-template-areas:
             "z1"
@@ -356,27 +386,31 @@ footer {
             "z6"
             "z7"
             "z8";
-            
+
     }
+
     * {
         animation: none !important;
     }
+
     .container-iframe {
         flex-direction: column;
         align-items: center;
     }
+
     .taburi-iframe {
         margin-left: 0;
         margin-top: 10px;
         flex-direction: row;
     }
+
     .taburi-iframe a {
         border-left: 2px solid var(--culoare-contur);
         border-radius: 10px 10px 0 0;
         margin-right: -2px;
     }
 
-    
+
     #link-top {
         width: 40px;
         height: 40px;
@@ -384,9 +418,15 @@ footer {
         right: 10px;
     }
 
-    #tab-anunturi{
-    min-width:600px;
-}
+    #tab-anunturi {
+        min-width: 600px;
+    }
+
+    .text-coloane {
+        column-count: 1;
+        column-rule: none;
+        /* Ascundem dunga */
+    }
 
 }
 
@@ -394,50 +434,50 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    
-    display: block; /* Cerința: link-ul e de tip block */
+
+    display: block;
     width: 60px;
     height: 60px;
-    border-radius: 50%; /* Bordură rotunjită */
-    
-    /* Culori și aspect */
+    border-radius: 50%;
+
+
     background-color: var(--culoare-accent);
     border: 3px solid var(--culoare-contur);
     text-decoration: none;
-    
-    /* Centrare triunghi */
+
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    /* Transparență și Umbră inițială */
-    opacity: 0.6; /* Semi-transparent conform cerinței */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Umbră externă discretă */
-    
-    /* Tranziție (între 300-700ms) */
+
+
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
     transition: background-color 0.5s, opacity 0.5s, box-shadow 0.5s;
-    
+
     z-index: 1000;
 }
 
-/* Triunghiulețul gol din interior */
+
 #link-top .triunghi {
     color: var(--culoare-principala);
     font-size: 30px;
     line-height: 0;
-    margin-bottom: 4px; /* Ajustare vizuală pentru centrare */
+    margin-bottom: 4px;
 }
 
-/* --- STAREA HOVER --- */
+
 #link-top:hover {
-    opacity: 1; /* Devine opac */
-    background-color: var(--culoare-hover); /* Se închide la culoare */
-    
-    /* Umbră intensă în jurul butonului (fără să sară din ecran) */
-    box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.5); 
+    opacity: 1;
+    background-color: var(--culoare-hover);
+
+
+    box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Tooltip-ul (text explicativ) */
+
 #link-top .tooltip {
     visibility: hidden;
     opacity: 0;
@@ -457,6 +497,7 @@ footer {
     visibility: visible;
     opacity: 1;
 }
+
 #video-carti video {
     width: 80%;
     min-width: 300px;
@@ -464,6 +505,7 @@ footer {
     display: block;
     margin: auto;
 }
+
 video::cue {
     background-color: rgba(255, 255, 255, 0.3);
     color: #111;
@@ -473,7 +515,7 @@ video::cue {
 /* a:visited{
     color:
 } */
- a {
+a {
     color: var(--culoare-principala);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -481,37 +523,398 @@ video::cue {
 
 /* 1. Culoarea pentru linkurile deja vizitate */
 a:visited {
-    color: var(--culoare-meniu); 
+    color: var(--culoare-meniu);
 }
 
 /* 2. Simbolul pentru linkurile externe */
 a[href^="http"]::before {
     content: "⮳ ";
-    font-size: 1.5em; /* Unitatea 'em' e relativa. 1.5em = cu 50% mai mare */
-    display: inline-block; /* Ajută să nu se decaleze urât fontul */
-    transition: color 0.3s ease; /* Pentru când schimbă culoarea la hover */
+    font-size: 1.5em;
+    /* Unitatea 'em' e relativa. 1.5em = cu 50% mai mare */
+    display: inline-block;
+    /* Ajută să nu se decaleze urât fontul */
+    transition: color 0.3s ease;
+    /* Pentru când schimbă culoarea la hover */
 }
 
 /* 3. Schimbarea culorii simbolului la hover */
 a[href^="http"]:hover::before {
-    color: var(--culoare-hover); 
+    color: var(--culoare-hover);
 }
 
 /* 4. Efectul "pata de culoare" pentru linkurile din conținutul paginii */
 main a {
     /* Gradientul cerut: c1 la 0% si 40%, transparent la 80% si 100% */
     background-image: radial-gradient(var(--culoare-accent) 0%, var(--culoare-accent) 40%, transparent 80%, transparent 100%);
-    background-position: center; /* Centrat */
-    background-size: 0%;         /* Dimensiune 0 la început */
+    background-position: center;
+    /* Centrat */
+    background-size: 0%;
+    /* Dimensiune 0 la început */
     background-repeat: no-repeat;
-    transition: background-size 0.4s ease; /* Tranziția care mărește pata */
-    
+    transition: background-size 0.4s ease;
+    /* Tranziția care mărește pata */
+
     /* Mici ajustări opționale ca să arate mai bine sub text */
     padding: 0 4px;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
 /* Mărirea petei la 100% când vii cu mouse-ul pe link */
 main a:hover {
     background-size: 100%;
+}
+
+
+hr.separator-dungat {
+    border: none;
+    height: 15px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 40px auto;
+
+
+    background: repeating-linear-gradient(to bottom,
+            var(--culoare-principala),
+            var(--culoare-principala) 3px,
+            var(--culoare-accent) 3px,
+            var(--culoare-accent) 6px
+            /* Dunga deschisă de 3px */
+        );
+}
+
+.imagine-duotone {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    margin: 20px auto;
+    background-image: url('/Resurse/images/duotone.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 3px solid var(--culoare-contur);
+}
+
+.imagine-duotone::before,
+.imagine-duotone::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: background-color 0.8s ease;
+}
+
+.imagine-duotone::before {
+    background-color: #ff00ff;
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.imagine-duotone::after {
+    background-color: #0000ff;
+    mix-blend-mode: screen;
+    z-index: 2;
+}
+
+.imagine-duotone:hover::before {
+    background-color: #ccffff;
+}
+
+.imagine-duotone:hover::after {
+    background-color: #0055ff;
+}
+
+.heading-reflexie {
+    position: relative; 
+    display: inline-block; 
+    color: var(--culoare-principala); 
+    margin-bottom: 60px; 
+    line-height: 1; 
+    border-bottom: none; 
+}
+    
+.heading-reflexie::after {
+    content: attr(data-text); 
+    position: absolute;
+    bottom: 10px; 
+    left: -2px; 
+    width: 100%;
+    color: var(--culoare-principala); 
+    opacity: 0.4; 
+    white-space: nowrap; 
+    transform-origin: bottom left; 
+    transform: scaleY(-1) skewX(-40deg); 
+    -webkit-mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 2px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 5px);
+    mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 2px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 5px);
+    pointer-events: none;
+}
+
+.heading-reflexie:hover::after {
+    animation: wave-ripple 1s linear infinite;
+}
+
+@keyframes wave-ripple {
+    0% { 
+        -webkit-mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 2px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 5px);
+        mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 2px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 5px); 
+    }
+    33% { 
+        -webkit-mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 1px, rgba(0,0,0,1) 3px, rgba(0,0,0,0) 4px);
+        mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 1px, rgba(0,0,0,1) 3px, rgba(0,0,0,0) 4px); 
+    }
+    66% { 
+        -webkit-mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 2px, rgba(0,0,0,1) 3px, rgba(0,0,0,1) 5px);
+        mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 2px, rgba(0,0,0,1) 3px, rgba(0,0,0,1) 5px); 
+    }
+    100% { 
+        -webkit-mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px, rgba(0,0,0,0) 5px, rgba(0,0,0,0) 7px);
+        mask-image: repeating-radial-gradient(ellipse at 50% 0%, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px, rgba(0,0,0,0) 5px, rgba(0,0,0,0) 7px); 
+    }
+}
+.text-coloane {
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 2px solid var(--culoare-contur);
+}
+
+
+.text-coloane section,
+.text-coloane p {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+::selection {
+    background-color: var(--culoare-accent); 
+    color: var(--culoare-principala);        
+}
+
+
+::-moz-selection {
+    background-color: var(--culoare-accent);
+    color: var(--culoare-principala);
+}
+
+
+.container-text-defilant {
+    width: 100%;
+    overflow: hidden; /* Critic pentru responsive! */
+    background-color: var(--culoare-principala);
+    color: var(--culoare-accent);
+    padding: 10px 0;
+    font-weight: bold;
+    border-top: 2px solid var(--culoare-contur);
+    border-bottom: 2px solid var(--culoare-contur);
+}
+
+
+.text-miscare {
+    display: inline-block;
+    white-space: nowrap; 
+    padding-left: 100%;  
+    animation: miscare-orizontala 15s linear infinite;
+}
+
+
+@keyframes miscare-orizontala {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+.container-text-defilant:hover .text-miscare {
+    animation-play-state: paused;
+}
+
+.background-animat {
+    
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    
+   
+    animation: schimba-background 10s infinite alternate; 
+}
+
+@keyframes schimba-background {
+    0%, 45% {
+        background-image: url('/Resurse/images/minim.jpg');
+    }
+    55%, 100% {
+        background-image: url('/Resurse/images/blurry1.jpg');
+    }
+}
+
+
+.tabel-card, .tabel-transpus {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabel-card th, .tabel-card td,
+.tabel-transpus th, .tabel-transpus td {
+    border: 1px solid var(--culoare-contur);
+    padding: 8px;
+    text-align: center;
+}
+
+.tabel-card thead, .tabel-transpus thead {
+    background-color: var(--culoare-accent);
+}
+
+
+@media screen and (max-width: 700px) {
+
+    
+    .tabel-card thead {
+        display: none; 
+    }
+    .tabel-card tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 2px solid var(--culoare-contur);
+        border-radius: 10px; 
+    }
+    .tabel-card td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .tabel-card td:last-child {
+        border-bottom: none;
+    }
+    .tabel-card td::before {
+        content: attr(data-label); 
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        background-color: #eee; 
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+
+
+    .tabel-transpus {
+        display: block;
+        overflow: hidden;
+    }
+    .tabel-transpus thead, 
+    .tabel-transpus tbody, 
+    .tabel-transpus tr {
+        display: block;
+        float: left; 
+    }
+    .tabel-transpus th, 
+    .tabel-transpus td {
+        display: block;
+        border: 1px solid var(--culoare-contur);
+        padding: 0.5em;
+        min-height: 45px; 
+        box-sizing: border-box;
+    }
+    .tabel-transpus td + td, 
+    .tabel-transpus th + th {
+        border-top: none;
+    }
+    .tabel-transpus tbody td {
+        border-left: none; 
+    }
+}
+
+#galerie-statica {
+    
+    counter-reset: indexGalerie;
+}
+
+.galerie-item figcaption::before {
+    /* Creștem indexul și îl afișăm */
+    counter-increment: indexGalerie;
+    content: counter(indexGalerie, upper-alpha) ") ";
+    font-weight: bold;
+    color: var(--culoare-accent);
+}
+
+
+#grid-galerie {
+    display: grid;
+    /* ECRAN MARE: 3 coloane egale, fără spații libere între ele */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; 
+    width: 100%;
+}
+
+.galerie-item {
+    margin: 0; 
+    position: relative;
+    border: 2px solid white;
+    z-index: 1; /* Nivelul de bază */
+}
+.galerie-item:hover {
+    z-index: 100;
+}
+
+
+.galerie-item picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    
+    transition: transform 0.6s ease, border-radius 0.6s ease;
+}
+
+
+.galerie-item picture img:hover {
+    transform: scale(1.5) rotate(360deg);
+    border-radius: 30px;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    #grid-galerie {
+        
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px; 
+    }
+
+    .galerie-item:nth-child(3n+1) {
+        grid-column: 1 / span 2;
+    }
+
+  
+    .galerie-item:nth-child(3n+2) {
+        grid-column: 3 / span 2;
+    }
+
+    
+    .galerie-item:nth-child(3n) {
+        grid-column: 2 / span 2;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    #grid-galerie {
+        /* O singură coloană mare */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    
+    .galerie-item {
+        grid-column: 1 / -1 !important;
+    }
 }

@@ -1,0 +1,36 @@
+{
+    "cale_galerie": "Resurse/images/galerie",
+    "imagini": [
+        { "cale_relativa": "i1.jpg", "nume": "Librăria de dimineață 1", "descriere": "Lumina dimineții printre rafturi.", "timp": "dimineata" },
+        { "cale_relativa": "i2.jpg", "nume": "Librăria de dimineață 2", "descriere": "Liniștea dinaintea clienților.", "timp": "dimineata" },
+        { "cale_relativa": "i3.jpg", "nume": "Librăria de dimineață 3", "descriere": "Raze de soare pe cărți.", "timp": "dimineata" },
+        { "cale_relativa": "i4.jpg", "nume": "Librăria de dimineață 4", "descriere": "Miros de cafea și hârtie.", "timp": "dimineata" },
+        { "cale_relativa": "i5.jpg", "nume": "Librăria de dimineață 5", "descriere": "Rafturi luminate natural.", "timp": "dimineata" },
+        { "cale_relativa": "i6.jpg", "nume": "Librăria de dimineață 6", "descriere": "Pregătiri pentru deschidere.", "timp": "dimineata" },
+        { "cale_relativa": "i7.jpg", "nume": "Librăria de dimineață 7", "descriere": "Un colț perfect de lectură.", "timp": "dimineata" },
+        
+        { "cale_relativa": "i8.jpg", "nume": "Librăria la prânz 1", "descriere": "Forfotă printre cărți.", "timp": "zi" },
+        { "cale_relativa": "i9.jpg", "nume": "Librăria la prânz 2", "descriere": "Căutând titlul perfect.", "timp": "zi" },
+        { "cale_relativa": "i10.jpg", "nume": "Librăria la prânz 3", "descriere": "Zeci de povești noi.", "timp": "zi" },
+        { "cale_relativa": "i11.jpg", "nume": "Librăria la prânz 4", "descriere": "O zi plină la BookLand.", "timp": "zi" },
+        { "cale_relativa": "i12.jpg", "nume": "Librăria la prânz 5", "descriere": "Descoperind lumi noi.", "timp": "zi" },
+        { "cale_relativa": "i13.jpg", "nume": "Librăria la prânz 6", "descriere": "Pauza de lectură.", "timp": "zi" },
+        { "cale_relativa": "i14.jpg", "nume": "Librăria la prânz 7", "descriere": "Bucuria cititului.", "timp": "zi" },
+
+        { "cale_relativa": "i15.jpg", "nume": "Librăria noaptea 1", "descriere": "Atmosferă magică la lăsarea serii.", "timp": "noapte" },
+        { "cale_relativa": "i16.jpg", "nume": "Librăria noaptea 2", "descriere": "Lumini calde printre rafturi.", "timp": "noapte" },
+        { "cale_relativa": "i17.jpg", "nume": "Librăria noaptea 3", "descriere": "Citind târziu în noapte.", "timp": "noapte" },
+        { "cale_relativa": "i18.jpg", "nume": "Librăria noaptea 4", "descriere": "Liniștea nopții în librărie.", "timp": "noapte" },
+        { "cale_relativa": "i19.jpg", "nume": "Librăria noaptea 5", "descriere": "Ultimele pagini din zi.", "timp": "noapte" },
+        { "cale_relativa": "i20.jpg", "nume": "Librăria noaptea 6", "descriere": "Magia cărților pe întuneric.", "timp": "noapte" },
+        { 
+            "cale_relativa": "i21.jpg", 
+            "nume": "Librăria noaptea 7", 
+            "descriere": "Misterul unei biblioteci vechi.", 
+            "timp": "noapte",
+            "licenta": "CC-BY 4.0",
+            "autor": "John Doe",
+            "link_autor": "https://wikipedia.org"
+        }
+    ]
+}
