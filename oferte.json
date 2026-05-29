@@ -1,0 +1,28 @@
+{
+  "oferte": [
+    {
+      "categorie": "pentru copii",
+      "data-incepere": "2026-05-29T14:29:48.162Z",
+      "data-finalizare": "2026-05-29T14:30:48.162Z",
+      "reducere": 35
+    },
+    {
+      "categorie": "fictiune",
+      "data-incepere": "2026-05-29T14:28:44.304Z",
+      "data-finalizare": "2026-05-29T14:29:44.304Z",
+      "reducere": 35
+    },
+    {
+      "categorie": "pentru copii",
+      "data-incepere": "2026-05-29T14:27:40.625Z",
+      "data-finalizare": "2026-05-29T14:28:40.625Z",
+      "reducere": 25
+    },
+    {
+      "categorie": "fantasy",
+      "data-incepere": "2026-05-29T14:26:36.330Z",
+      "data-finalizare": "2026-05-29T14:27:36.330Z",
+      "reducere": 15
+    }
+  ]
+}

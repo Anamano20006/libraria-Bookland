@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Cărți - Librăria BookLand</title>
+    <%- include ('../fragmente/head.ejs') %>
+    <script type="text/javascript" src="/Resurse/js/produse.js"></script>
+
+    <style>
+        .container-produse {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filtre {
+            background-color: #f4ece4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #dcb591;
+        }
+
+        .rand-filtre {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .grup-filtru {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .grid-produse {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .produs {
+            border: 2px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fffaf0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative; /* Adaugat pt butoanele absolute */
+        }
+
+        .produs:hover {
+            border-color: #5a3e2b;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- STILIZARE PRODUS FIXAT (BONUS 6) --- */
+        .produs.produs-fixat {
+            border: 3px solid #28a745 !important;
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.3) !important;
+        }
+        body.tema-dark .produs.produs-fixat {
+            background-color: #1e3a23 !important;
+        }
+        body.tema-vintage .produs.produs-fixat {
+            background-color: #dcedc8 !important;
+        }
+
+        .produs .nume {
+            text-align: center;
+            color: #5a3e2b;
+            border-bottom: 1px solid #dcb591;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .produs .categorie {
+            text-align: center;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b5a2b;
+            margin-bottom: 15px;
+        }
+
+        .produs img {
+            width: 120px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .val-descriere {
+            font-style: italic;
+            font-size: 0.9em;
+            min-height: 80px;
+        }
+
+        .produs ul {
+            clear: both;
+            margin-top: 15px;
+            padding-left: 20px;
+            font-size: 0.95em;
+        }
+
+        .selecteaza-cos {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #eaddcf;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #div-calcul {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #5a3e2b;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- TEME --- */
+        body.tema-dark { background-color: #1a120b !important; }
+        body.tema-dark .filtre, body.tema-dark .produs {
+            background-color: #2c1e16 !important;
+            border-color: #5a3e2b !important;
+            color: #f5efe6 !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+        }
+        body.tema-dark .filtre h3, body.tema-dark .filtre label, body.tema-dark .produs .nume, body.tema-dark .produs .categorie {
+            color: #d6b98c !important;
+        }
+        body.tema-dark .form-control, body.tema-dark .form-select, body.tema-dark .form-floating textarea {
+            background-color: #1a120b !important;
+            color: #f5efe6 !important;
+            border-color: #5a3e2b !important;
+        }
+        body.tema-dark .form-floating label { color: #8b6b4a !important; }
+        body.tema-dark .produs .nume { border-bottom: 1px solid #5a3e2b !important; }
+        body.tema-dark .selecteaza-cos { background-color: #5a3e2b !important; color: #f5efe6 !important; }
+        body.tema-dark .form-control::placeholder { color: #8b6b4a !important; opacity: 1 !important; }
+        body.tema-dark .form-floating .form-control::placeholder { color: transparent !important; }
+        body.tema-dark .form-floating .form-control:focus::placeholder { color: #8b6b4a !important; }
+        body.tema-dark .btn-check:checked + .btn-outline-secondary {
+            background-color: #d6b98c !important; 
+            color: #1a120b !important; 
+            border-color: #d6b98c !important;
+        }
+
+        body.tema-vintage { background-color: #c19a6b !important; color: #3e2723 !important; }
+        body.tema-vintage .filtre, body.tema-vintage .produs {
+            background-color: #e4c59e !important;
+            border-color: #8b5a2b !important;
+            color: #3e2723 !important;
+            box-shadow: inset 0 0 30px rgba(139, 90, 43, 0.3), 3px 3px 8px rgba(0,0,0,0.2) !important; 
+        }
+        body.tema-vintage .filtre h3, body.tema-vintage .filtre label, body.tema-vintage .produs .nume, body.tema-vintage .produs .categorie {
+            color: #4e342e !important; 
+        }
+        body.tema-vintage .form-control, body.tema-vintage .form-select, body.tema-vintage .form-floating textarea {
+            background-color: #f1e0c6 !important; 
+            color: #3e2723 !important;
+            border-color: #a47148 !important;
+        }
+        body.tema-vintage .produs .nume { border-bottom: 2px double #8b5a2b !important; }
+        body.tema-vintage .selecteaza-cos { background-color: #c19a6b !important; color: #3e2723 !important; border: 1px solid #8b5a2b !important; }
+        body.tema-vintage #bara-titlu-filtre { border-bottom: 2px solid #8b5a2b !important; }
+
+    </style>
+</head>
+
+<body id="top">
+    <%- include ('../fragmente/header.ejs') %>
+
+    <main class="container-produse">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #5a3e2b;" class="titlu-pagina-produse">Cărțile Noastre</h2>
+
+        <style>
+            body.tema-dark .titlu-pagina-produse { color: #d6b98c !important; }
+        </style>
+
+        <% 
+            let paginiToate = locals.produse ? locals.produse.map(p => p.numar_pagini) : [0];
+            let minPagini = Math.min(...paginiToate);
+            let maxPagini = Math.max(...paginiToate);
+            let limbiUnice = locals.produse ? [...new Set(locals.produse.map(p => p.limba))] : [];
+            let coperteUnice = locals.produse ? [...new Set(locals.produse.map(p => p.subcategorie))] : [];
+        %>
+
+        <section class="filtre">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2" style="border-bottom: 2px solid #5a3e2b;" id="bara-titlu-filtre">
+                <h3 style="margin: 0; color: #5a3e2b;">Filtrează cărțile</h3>
+                
+                <style>
+                    body.tema-dark #bara-titlu-filtre { border-bottom: 2px solid #d6b98c !important; }
+                </style>
+                
+                <div class="d-flex align-items-center gap-2">
+                    <label for="sel-tema" class="fw-bold mb-0 d-none d-sm-block" style="color: inherit;"><i class="bi bi-palette-fill"></i> Temă:</label>
+                    <select id="sel-tema" class="form-select form-select-sm border-secondary shadow-none" style="width: auto; cursor: pointer;">
+                        <option value="light">Zi (Clasic)</option>
+                        <option value="dark">Noapte (Espresso)</option>
+                        <option value="vintage">Vintage (Pergament)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Nume carte:</label>
+                    <input type="text" id="inp-nume" class="form-control border-secondary" placeholder="Ex: Harry Potter">
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Număr minim pagini: <span id="infoRange" class="text-primary">(<%= minPagini %>)</span></label>
+                    <div class="d-flex align-items-center gap-2">
+                        <span><%= minPagini %></span>
+                        <input type="range" id="inp-pagini" class="form-range flex-grow-1" value="<%= minPagini %>" min="<%= minPagini %>" max="<%= maxPagini %>" oninput="document.getElementById('infoRange').innerText = '(' + this.value + ')'">
+                        <span><%= maxPagini %></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Limba:</label>
+                    <input list="lista-limbi" id="inp-limba" class="form-control border-secondary" placeholder="Alege limba...">
+                    <datalist id="lista-limbi">
+                        <% for (let limba of limbiUnice) { %>
+                            <option value="<%= limba %>">
+                        <% } %>
+                    </datalist>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Categorie (Select simplu):</label>
+                    <select id="inp-categorie" class="form-select border-secondary">
+                        <option id="sel-toate" selected value="toate">Toate</option>
+                        <% if (locals.optiuniMeniu) { %>
+                            <% for (let opt of locals.optiuniMeniu) { %>
+                                <option value="<%- opt %>"><%- opt.charAt(0).toUpperCase() + opt.slice(1) %></option>
+                            <% } %>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Interval Preț:</label>
+                    <select id="inp-pret" class="form-select border-secondary" multiple size="3">
+                        <option value="0-40">0 - 40 lei</option>
+                        <option value="40-70">40 - 70 lei</option>
+                        <option value="70-1000">Peste 70 lei</option>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-floating h-100">
+                        <textarea class="form-control border-secondary" id="inp-descriere" placeholder="Ex: +magie -elfi" style="height: 100%; min-height: 90px;"></textarea>
+                        <label for="inp-descriere" class="text-muted">Caută în descriere (+ / -)</label>
+                        <div class="invalid-feedback">Fiecare cuvânt introdus trebuie să înceapă cu + sau -</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4 align-items-center">
+                <div class="col-12 col-md-8">
+                    <label class="form-label fw-bold d-block" style="color: #5a3e2b;">Tip Copertă:</label>
+                    <div class="btn-group w-100" role="group">
+                        <% coperteUnice.forEach((coperta, index)=> { %>
+                            <input type="radio" class="btn-check" name="gr_rad" id="i_rad<%= index %>" value="<%= coperta %>" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="i_rad<%= index %>"><%= coperta.charAt(0).toUpperCase() + coperta.slice(1) %></label>
+                        <% }); %>
+                        <input type="radio" class="btn-check" name="gr_rad" id="i_rad_all" value="toate" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="i_rad_all">Orice tip</label>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mt-md-4 pt-md-2">
+                    <input type="checkbox" class="btn-check" id="inp-semn" autocomplete="off">
+                    <label class="btn btn-outline-secondary w-100" for="inp-semn">Doar cărți cu semn inclus</label>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2 mb-4 justify-content-center">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">Prima cheie de sortare:</label>
+                    <select id="sort-cheie1" class="form-select border-secondary">
+                        <option value="pret" selected>Preț</option>
+                        <option value="nume">Nume carte</option>
+                        <option value="pagini">Număr pagini</option>
+                        <option value="categorie">Categorie</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" style="color: #5a3e2b;">A doua cheie de sortare:</label>
+                    <select id="sort-cheie2" class="form-select border-secondary">
+                        <option value="nume" selected>Nume carte</option>
+                        <option value="pret">Preț</option>
+                        <option value="pagini">Număr pagini</option>
+                        <option value="categorie">Categorie</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap justify-content-center mt-4">
+                <button id="filtrare" class="btn btn-primary d-none"><i class="bi bi-funnel-fill"></i> Filtrează</button> <button id="resetare" class="btn btn-danger">
+                    <i class="bi bi-arrow-counterclockwise"></i> <span class="d-none d-md-inline">Resetează</span>
+                </button>
+                <button id="sortCrescNume" class="btn btn-secondary">
+                    <i class="bi bi-sort-numeric-up"></i> <span class="d-none d-lg-inline">Sortează crescător</span>
+                </button>
+                <button id="sortDescrescNume" class="btn btn-secondary">
+                    <i class="bi bi-sort-numeric-down-alt"></i> <span class="d-none d-lg-inline">Sortează descrescător</span>
+                </button>
+                <button id="btn-calcul" class="btn btn-info">
+                    <i class="bi bi-calculator"></i> <span class="d-none d-md-inline">Calculează preț mediu</span>
+                </button>
+            </div>
+        </section>
+
+        <div id="mesaj-lipsa-produse" class="alert alert-warning text-center fw-bold fs-5 shadow-sm mb-4" style="display: none; background-color: #f4ece4; color: #5a3e2b; border-color: #dcb591;">
+            <i class="bi bi-emoji-frown"></i> Nu există produse conform filtrării curente.
+        </div>
+
+        <section id="produse">
+            <div class="grid-produse">
+                <% 
+                const zile=["Duminica", "Luni" , "Marti" , "Miercuri" , "Joi" , "Vineri" , "Sambata" ]; 
+                const luni=["Ianuarie", "Februarie" , "Martie" , "Aprilie" , "Mai" , "Iunie" , "Iulie" , "August", "Septembrie" , "Octombrie" , "Noiembrie" , "Decembrie" ]; 
+                
+                // --- BONUS 14: Calculare cel mai ieftin produs pe categorie ---
+                let pretMinimCategorie = {};
+                if (locals.produse) {
+                    for (let p of locals.produse) {
+                        if (!pretMinimCategorie[p.categorie] || p.pret < pretMinimCategorie[p.categorie]) {
+                            pretMinimCategorie[p.categorie] = p.pret;
+                        }
+                    }
+                }
+                
+                for( let prod of locals.produse) {
+                    let d=new Date(prod.data_adaugare); 
+                    let dataFormatata=`${zile[d.getDay()]}, ${d.getDate()}-${luni[d.getMonth()]}-${d.getFullYear()}`; 
+                    let clasaCategorie=prod.categorie.replace(/\s+/g, '' ); 
+                %>
+                    <article class="produs <%- clasaCategorie %>" id="articol_<%- prod.id %>">
+                        
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            
+                            <div>
+                                <% if (prod.pret === pretMinimCategorie[prod.categorie]) { %>
+                                    <span class="badge bg-warning text-dark border border-dark shadow-sm fw-bold fs-7" style="border-radius: 6px; padding: 4px 8px;">
+                                        <i class="bi bi-star-fill text-danger"></i> Cel mai ieftin!
+                                    </span>
+                                <% } %>
+                            </div>
+
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-outline-success btn-pin" title="Păstrează produsul pe ecran mereu">
+                                    <i class="bi bi-pin-angle fw-bold"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning btn-temp-hide" title="Ascunde temporar">
+                                    <i class="bi bi-eye-slash fw-bold"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger btn-session-hide" title="Șterge pentru sesiunea curentă">
+                                    <i class="bi bi-trash fw-bold"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <h3 class="nume mt-1">
+                            <a href="/produs/<%- prod.id %>" style="text-decoration: none; color: inherit;">
+                                <span class="val-nume"><%- prod.nume %></span>
+                            </a>
+                        </h3>
+                        <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie %></span></p>
+
+                        <div>
+                            <figure style="margin: 0;">
+                                <a href="/produs/<%- prod.id %>">
+                                    <img src="/Resurse/images/produse/<%- prod.imagine %>" onerror="this.src='/Resurse/images/default.jpg'" alt="Coperta <%- prod.nume %>" />
+                                </a>
+                            </figure>
+                            <p class="val-descriere"><%- prod.descriere %></p>
+                        </div>
+
+                        <ul>
+                            <li>
+                                Preț: 
+                                <% if (locals.oferta && prod.categorie.toLowerCase() === locals.oferta.categorie.toLowerCase()) { 
+                                        let pretNou = (prod.pret * (1 - locals.oferta.reducere / 100)).toFixed(2);
+                                %>
+                                    <del class="text-muted"><%- prod.pret %> lei</del> 
+                                    <strong class="text-danger"><span class="val-pret"><%= pretNou %></span> lei</strong>
+                                    <span class="badge bg-danger ms-1">-<%= locals.oferta.reducere %>%</span>
+                                <% } else { %>
+                                    <strong><span class="val-pret"><%- prod.pret %></span> lei</strong>
+                                <% } %>
+                            </li>
+                            <li>Număr pagini: <span class="val-pagini"><%- prod.numar_pagini %></span> pag.</li>
+                            <li>Limba: <span class="val-limba"><%- prod.limba %></span></li>
+                            <li>Tip copertă: <span class="val-coperta"><%- prod.subcategorie %></span></li>
+                            <li>Tag-uri: <span class="val-taguri"><%- prod.taguri %></span></li>
+                            <li>Semn de carte inclus: <strong><span class="val-semn"><%- prod.include_semn_carte ? 'Da' : 'Nu' %></span></strong></li>
+                            <li>Adăugat pe: <time datetime="<%- d.toISOString() %>"><%- dataFormatata %></time></li>
+                        </ul>
+
+                        <label class="selecteaza-cos">
+                            Adaugă în coș: <input type="checkbox" class="select-cos" value="<%- prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% } %>
+            </div>
+
+            <div id="paginare" class="mt-5 d-flex justify-content-center gap-2 flex-wrap"></div>
+
+        </section>
+
+    </main>
+
+    <%- include ('../fragmente/footer.ejs') %>
+</body>
+
+</html>

@@ -167,7 +167,7 @@ $culoare-accent-sass: var(--culoare-accent);
             left: 0;
             background-color: var(--culoare-meniu);
             
-            /* Animația cu balama în stânga-sus (rotație 2D) */
+            
             transform-origin: top left; 
             transform: rotate(-90deg); 
             opacity: 0;
@@ -184,26 +184,26 @@ $culoare-accent-sass: var(--culoare-accent);
                     color: white !important; 
                     padding: 15px;
                     
-                    /* Ascundem bara glisantă */
+                    
                     &::after {
                         display: none !important;
                     }
                     
                     transition: background-color $timp-animatie ease, color $timp-animatie ease !important;
                     
-                    /* AICI AM MODIFICAT: Interschimbarea culorilor la hover pe opțiunile principale */
+                    
                     &:hover {
                         background-color: white !important;
                         color: var(--culoare-principala) !important;
                     }
 
-                    /* ASCUNDEM ICONIȚELE PENTRU OPȚIUNILE 2, 3, 4, 5 */
+                    
                     i {
                         display: none !important;
                     }
                 }
 
-                /* MODIFICĂM DOAR PRIMA OPȚIUNE (ACASĂ) */
+                
                 &:first-child > div.text-icon {
                     font-size: 0 !important; 
                     
@@ -214,7 +214,7 @@ $culoare-accent-sass: var(--culoare-accent);
                     }
                 }
 
-                /* Submeniul */
+                
                 > ul {
                     position: relative;
                     width: 100%;
@@ -232,7 +232,7 @@ $culoare-accent-sass: var(--culoare-accent);
                         color: white !important;
                         transition: background-color $timp-animatie ease, color $timp-animatie ease !important;
                         
-                        /* Hover-ul de la submeniu (același comportament de culori acum) */
+                        
                         &:hover {
                             padding-left: 15px !important; 
                             background-color: white !important;
@@ -241,7 +241,7 @@ $culoare-accent-sass: var(--culoare-accent);
                     }
                 }
 
-                /* Afișarea submeniului */
+                
                 &:hover > ul {
                     transform: rotateX(0deg);
                     opacity: 1;
@@ -250,7 +250,7 @@ $culoare-accent-sass: var(--culoare-accent);
             }
         }
 
-        /* Declanșarea meniului la apăsarea pe hamburger */
+        
         #ch-menu:checked ~ .meniu {
             transform: rotate(0deg); 
             opacity: 1;

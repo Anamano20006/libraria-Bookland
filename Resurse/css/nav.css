@@ -1,4 +1,3 @@
-@charset "UTF-8";
 nav .meniu > li > div.text-icon, nav .meniu > li > a {
   display: block;
   padding: 15px 20px;
@@ -174,7 +173,6 @@ nav .meniu > li > ul > li:nth-child(8) > a {
     top: 100%;
     left: 0;
     background-color: var(--culoare-meniu);
-    /* Animația cu balama în stânga-sus (rotație 2D) */
     transform-origin: top left;
     transform: rotate(-90deg);
     opacity: 0;
@@ -190,27 +188,19 @@ nav .meniu > li > ul > li:nth-child(8) > a {
     font-size: 1.2rem !important;
     color: white !important;
     padding: 15px;
-    /* Ascundem bara glisantă */
   }
   nav .meniu > li > div.text-icon::after, nav .meniu > li > a::after {
     display: none !important;
   }
   nav .meniu > li > div.text-icon, nav .meniu > li > a {
     transition: background-color 0.3s ease, color 0.3s ease !important;
-    /* AICI AM MODIFICAT: Interschimbarea culorilor la hover pe opțiunile principale */
   }
   nav .meniu > li > div.text-icon:hover, nav .meniu > li > a:hover {
     background-color: white !important;
     color: var(--culoare-principala) !important;
   }
-  nav .meniu > li > div.text-icon, nav .meniu > li > a {
-    /* ASCUNDEM ICONIȚELE PENTRU OPȚIUNILE 2, 3, 4, 5 */
-  }
   nav .meniu > li > div.text-icon i, nav .meniu > li > a i {
     display: none !important;
-  }
-  nav .meniu > li {
-    /* MODIFICĂM DOAR PRIMA OPȚIUNE (ACASĂ) */
   }
   nav .meniu > li:first-child > div.text-icon {
     font-size: 0 !important;
@@ -219,9 +209,6 @@ nav .meniu > li > ul > li:nth-child(8) > a {
     display: inline-block !important;
     font-size: 1.5rem !important;
     margin: 0;
-  }
-  nav .meniu > li {
-    /* Submeniul */
   }
   nav .meniu > li > ul {
     position: relative;
@@ -239,23 +226,16 @@ nav .meniu > li > ul > li:nth-child(8) > a {
     font-size: 1rem !important;
     color: white !important;
     transition: background-color 0.3s ease, color 0.3s ease !important;
-    /* Hover-ul de la submeniu (același comportament de culori acum) */
   }
   nav .meniu > li > ul li a:hover {
     padding-left: 15px !important;
     background-color: white !important;
     color: var(--culoare-principala) !important;
   }
-  nav .meniu > li {
-    /* Afișarea submeniului */
-  }
   nav .meniu > li:hover > ul {
     transform: rotateX(0deg);
     opacity: 1;
     max-height: 600px;
-  }
-  nav {
-    /* Declanșarea meniului la apăsarea pe hamburger */
   }
   nav #ch-menu:checked ~ .meniu {
     transform: rotate(0deg);

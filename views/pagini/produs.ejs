@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description" content="Detalii despre cartea <%- locals.prod.nume %> din Librăria BookLand.">
+    <meta name="keywords" content="carte, librarie, <%- locals.prod.nume %>, <%- locals.prod.categorie %>, <%- locals.prod.limba %>">
+    
+    <title>BookLand - <%- locals.prod.nume %></title>
+    <%- include("../fragmente/head") %>     
+    <link href="/Resurse/css/produs.css" type="text/css" rel="stylesheet" />
+    <style>
+        #art-produs {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #5a3e2b;
+            border-radius: 15px;
+            background: #fffaf0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        #art-produs h2 { grid-column: 1 / span 2; color: #5a3e2b; border-bottom: 2px solid #5a3e2b; }
+        .imag-produs img { width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .info-detaliata p { margin: 10px 0; font-size: 1.1em; }
+        .info-detaliata strong { color: #8b5a2b; }
+    </style>
+</head>
+
+<body id="top">
+    <%- include("../fragmente/header") %>
+
+    <main class="container">
+        <section>
+            <article id="art-produs">
+                <h2><span class="nume"><%- locals.prod.nume %></span></h2>
+                
+                <figure class="imag-produs">
+                    <img src="/Resurse/images/produse/<%- locals.prod.imagine %>" onerror="this.src='/Resurse/images/default.jpg'" alt="Coperta <%- locals.prod.nume %>" />
+                </figure>
+
+                <div class="info-detaliata">
+                    <p><strong>Preț:</strong> <span class="pret"><%- locals.prod.pret %></span> lei</p>
+                    <p><strong>Categorie:</strong> <span class="categorie"><%- locals.prod.categorie %></span></p>
+                    <p><strong>Tip Copertă:</strong> <span class="subcategorie"><%- locals.prod.subcategorie %></span></p>
+                    <p><strong>Număr Pagini:</strong> <span class="pagini"><%- locals.prod.numar_pagini %></span></p>
+                    <p><strong>Limba:</strong> <span class="limba"><%- locals.prod.limba %></span></p>
+                    <p><strong>Tag-uri:</strong> <span class="taguri"><%- locals.prod.taguri.join(", ") %></span></p>
+                    <p><strong>Include semn de carte:</strong> <span class="semn"><%- locals.prod.include_semn_carte ? 'Da' : 'Nu' %></span></p>
+                    <p><strong>Data adăugării în stoc:</strong> <span><%- locals.prod.data_adaugare.toLocaleDateString('ro-RO') %></span></p>
+                    <hr>
+                    <p><strong>Descriere completă:</strong></p>
+                    <p class="descriere"><%- locals.prod.descriere %></p>
+                </div>
+            </article>
+        </section>
+        
+        <div class="text-center mb-5">
+            <a href="/produse" class="btn btn-primary">Înapoi la toate produsele</a>
+        </div>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+</body>
+</html>
