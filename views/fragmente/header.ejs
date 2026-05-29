@@ -14,7 +14,7 @@
 
         <ul class="meniu">
             <li>
-                <div class="text-icon"><i class="fa-solid fa-house fa-fade"></i> Acasa</div>
+                <a href="/index" class="text-icon"><i class="fa-solid fa-house fa-fade"></i> Acasa</a>
                 <ul>
                     <li><a href="/index#welcome">Welcome</a></li>
                     <li><a href="/index#promotii">Promotii</a></li>
@@ -35,18 +35,19 @@
             </li>
 
             <li>
-                <div class="text-icon"><i class="fa-solid fa-wand-sparkles fa-fade"></i> Produse</div>
+                <a href="/produse" class="text-icon"><i class="fa-solid fa-wand-sparkles fa-fade"></i> Produse</a>
                 <ul>
                     <li><a href="/produse">Toate</a></li>
-                    <li><a href="/produse?tip=cofetarie">Fantasy</a></li>
-                    <li><a href="#produse?tip=gelaterie">Fictiune</a></li>
-                    <li><a href="#produse?tip=patiserie">Dezvoltare personala</a></li>
-                    <li><a href="#produse">Carti pentru copii</a></li>
+                    <% if (locals.optiuniMeniu) { %>
+                        <% for (let opt of locals.optiuniMeniu) { %>
+                            <li><a href="/produse?tip=<%- opt %>"><%- opt.charAt(0).toUpperCase() + opt.slice(1) %></a></li>
+                        <% } %>
+                    <% } %>
                 </ul>
             </li>
-            <li><a href="#livrare"><i class="fa-solid fa-truck fa-fade"></i> Livrare</a></li>
+            <li><a href="/index#livrare"><i class="fa-solid fa-truck fa-fade"></i> Livrare</a></li>
             <li>
-                <a href="#intrebari">
+                <a href="/index#intrebari">
                     <i class="fa-solid fa-circle-question fa-fade"></i> Intrebari frecvente
                 </a>
             </li>

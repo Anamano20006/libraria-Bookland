@@ -512,54 +512,148 @@ video::cue {
     font-weight: bold;
 }
 
-/* a:visited{
-    color:
-} */
+@media print {
+    html, body {
+        height: auto !important;
+        overflow: visible !important;
+    }
+    table, tr, td { page-break-inside: avoid; }
+
+    #grid-pagina {
+        display: block !important;
+    }
+
+    img, video, iframe, figure, figcaption, .fg-img, 
+    #link-top, a[href="#top"], .container-iframe,
+    footer i, footer a[href="#top"] {
+        display: none !important;
+    }
+
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    h1#titlu {
+        display: block;
+        text-align: center;
+        margin-top: 0; 
+    }
+
+    nav ul.meniu {
+        display: block !important;
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    nav ul.meniu li {
+        display: list-item !important;
+        margin-bottom: 5px;
+    }
+
+    nav ul.meniu ul {
+        display: none !important;
+    }
+
+    nav {
+        page-break-after: always;
+    }
+    footer {
+            page-break-before: always;
+    }
+
+    #banner-print {
+        display: block !important;
+        position: absolute;
+        bottom: 3cm;
+        left: 15%;
+        width: 70%;
+        text-align: center;
+        border: 4px inset black;
+        padding: 10px;
+        background: white;
+    }
+
+    body::after {
+        content: "Manoloiu \A Ana Maria";
+        white-space: pre;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 4cm;
+        height: 1cm;
+        font-size: 10pt;
+        line-height: 1.1;
+        border: 3px solid black;
+        border-radius: 10px;
+        font-weight: bold;
+        opacity: 0.4;
+        position: fixed;
+        bottom: 5mm;
+        right: 5mm;
+    }
+
+    @page { size: auto; }
+    @page :left { margin: 1cm 1cm 1cm 3cm; }
+    @page :right { margin: 1cm 3cm 1cm 1cm; }
+}
+
+#banner-print {
+    display: none;
+}
+
+
+
+
+
+
+
 a {
     color: var(--culoare-principala);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-/* 1. Culoarea pentru linkurile deja vizitate */
+
 a:visited {
     color: var(--culoare-meniu);
 }
 
-/* 2. Simbolul pentru linkurile externe */
+
 a[href^="http"]::before {
     content: "⮳ ";
     font-size: 1.5em;
-    /* Unitatea 'em' e relativa. 1.5em = cu 50% mai mare */
+    
     display: inline-block;
-    /* Ajută să nu se decaleze urât fontul */
+    
     transition: color 0.3s ease;
-    /* Pentru când schimbă culoarea la hover */
+   
 }
 
-/* 3. Schimbarea culorii simbolului la hover */
+
 a[href^="http"]:hover::before {
     color: var(--culoare-hover);
 }
 
-/* 4. Efectul "pata de culoare" pentru linkurile din conținutul paginii */
+
 main a {
-    /* Gradientul cerut: c1 la 0% si 40%, transparent la 80% si 100% */
+    
     background-image: radial-gradient(var(--culoare-accent) 0%, var(--culoare-accent) 40%, transparent 80%, transparent 100%);
     background-position: center;
-    /* Centrat */
+    
     background-size: 0%;
-    /* Dimensiune 0 la început */
+    
     background-repeat: no-repeat;
     transition: background-size 0.4s ease;
-    /* Tranziția care mărește pata */
+   
 
-    /* Mici ajustări opționale ca să arate mai bine sub text */
+    
     padding: 0 4px;
     border-radius: 5px;
 }
 
-/* Mărirea petei la 100% când vii cu mouse-ul pe link */
+
 main a:hover {
     background-size: 100%;
 }
@@ -917,4 +1011,10 @@ hr.separator-dungat {
     .galerie-item {
         grid-column: 1 / -1 !important;
     }
+}
+
+
+body.tema-dark {
+    background-color: #1a120b !important;
+    color: #f5efe6 !important;
 }

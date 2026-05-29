@@ -13,12 +13,62 @@
 
 <body id="top">
     <%- include ('../fragmente/header.ejs') %>
-        <main> <!--  comentariu -->
-            <div class="container-text-defilant">
+        <main> <div class="container-text-defilant">
         <div class="text-miscare">
             📚 Oferta lunii: La 3 cărți cumpărate, primești un semn de carte cadou! 📖 Livrare gratuită la comenzi peste 150 lei! 📚
         </div>
     </div>
+
+            <% if (locals.oferta) { %>
+                <div class="container mt-4 mb-4">
+                    <div id="banner-oferta" class="alert alert-danger text-center shadow-sm border-2 border-danger p-4 position-relative overflow-hidden" style="border-radius: 15px; background: linear-gradient(145deg, #fff5f5, #ffe3e3);">
+                        <div class="position-absolute top-0 start-0 p-2 bg-danger text-white fw-bold text-uppercase shadow-sm" style="font-size: 0.8rem; letter-spacing: 1px;">Ofertă Limitată!</div>
+                        <h2 class="mt-3 text-dark fw-bold">Reducere de <span class="badge bg-danger fs-3"><%= oferta.reducere %>%</span> la cărțile din categoria <span class="text-danger">"<%= oferta.categorie.toUpperCase() %>"</span></h2>
+                        <p class="fs-5 mb-2 text-muted">Grăbește-te! Oferta expiră în:</p>
+                        
+                        <div id="timer-oferta" class="display-6 fw-bold text-dark font-monospace bg-white px-4 py-2 rounded-pill d-inline-block shadow-sm border border-danger">
+                            00:00:00
+                        </div>
+                    </div>
+                </div>
+            
+                <script>
+                    (function() {
+                        const dataFinal = new Date("<%= oferta['data-finalizare'] %>").getTime();
+                        const timerElement = document.getElementById("timer-oferta");
+            
+                        let intervalCeas = setInterval(function() {
+                            let acum = new Date().getTime();
+                            let diferenta = dataFinal - acum;
+            
+                            if (diferenta <= 0) {
+                                clearInterval(intervalCeas);
+                                timerElement.innerText = "EXPIRAT!";
+                                // Refresh la pagină ca să apară următoarea ofertă generată de server
+                                setTimeout(() => { window.location.reload(); }, 1000);
+                                return;
+                            }
+            
+                            let ore = Math.floor((diferenta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            let minute = Math.floor((diferenta % (1000 * 60 * 60)) / (1000 * 60));
+                            let secunde = Math.floor((diferenta % (1000 * 60)) / 1000);
+            
+                            let strOre = ore < 10 ? "0" + ore : ore;
+                            let strMin = minute < 10 ? "0" + minute : minute;
+                            let strSec = secunde < 10 ? "0" + secunde : secunde;
+            
+                            timerElement.innerText = `${strOre}:${strMin}:${strSec}`;
+            
+                            // Ultimele 10 secunde - alertă vizuală
+                            if (diferenta <= 10000) { 
+                                timerElement.style.color = "#dc3545"; 
+                                timerElement.style.borderColor = "#dc3545";
+                                timerElement.style.opacity = (secunde % 2 === 0) ? "0.5" : "1";
+                            }
+                        }, 1000);
+                    })();
+                </script>
+            <% } %>
             <div id="grid-pagina">
 
                 <section id="welcome">
@@ -68,7 +118,6 @@
                     <div id="dv-prezentare-1">
                         <div id="dv-prezentare">
                             <picture>
-                                <!-- il ia pe primul care se potriveste cu query-ul din media-->
                                 <source srcset="/Resurse/images/librarie1.jpg" media="(max-width:700px)" />
                                 <source srcset="/Resurse/images/poza.jpg" media="(max-width:1200px)" />
                                 <img id="poza-treia" src="/Resurse/images/librarie2.jpg" alt="text" />
